@@ -17,13 +17,6 @@ class Hour extends Model
     }
 
     public function hoursTotal() {
-      //$date1 = new \DateTime($this->start);
-      //$date2 = new \DateTime($this->stop);
-      //return $date2->diff($date1);
-      //return str($date1);
-
-      //$date1 = strtotime(str_replace('/', '-', $this->start));
-      //$date2 = strtotime(str_replace('/', '-', $this->stop));
 
       $date1 = new \DateTime($this->start);
       $date2 = new \DateTime($this->stop);
@@ -38,7 +31,6 @@ class Hour extends Model
         } else {
           return $diff->format('%hh %im');
         }
-        //return round(abs(($date1 - $date2) / 3600));
       }
     }
 
