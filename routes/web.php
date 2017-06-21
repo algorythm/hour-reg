@@ -88,6 +88,9 @@ Route::group(['middleware' => 'auth'], function() {
   Route::get('stats/all', function() {
     return view('stats.all');
   });
+  Route::get('stats/categories', function() {
+    return view('stats.cats');
+  });
   Route::get('stats/user/{id}', function($id) {
     return view('stats.user', ['user' => App\User::find($id)]);
   });

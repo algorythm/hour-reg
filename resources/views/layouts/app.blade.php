@@ -64,6 +64,7 @@
                                     <li>
                                       <a href="/home">Home</a>
                                       <a href="/stats/all">Statistics - All</a>
+                                      <a href="/stats/categories">Statistics - Categories</a>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

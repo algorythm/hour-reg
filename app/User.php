@@ -49,6 +49,34 @@ class User extends Authenticatable
       return null;
     }
 
+    public function hoursCategory($category) {
+      $total = 0;
+      $today = new \DateTime();
+      foreach ($this->hours as $hour) {
+        $d1 = new \DateTime($hour->start);
+        $d2 = new \DateTime($hour->stop);
+        $diff = $d1->diff($d2);
+        $mins = $diff->format('%h') * 60;
+        if ($hour->category->id == $category->id) {
+          $total += $mins + $diff->format('%i');
+        }
+      }
+      return floor($total / 60) . "h " . ($total % 60) . "m";
+    }
+
+    public function hoursTotal() {
+      $total = 0;
+      $today = new \DateTime();
+      foreach ($this->hours as $hour) {
+        $d1 = new \DateTime($hour->start);
+        $d2 = new \DateTime($hour->stop);
+        $diff = $d1->diff($d2);
+        $mins = $diff->format('%h') * 60;
+        $total += $mins + $diff->format('%i');
+      }
+      return floor($total / 60) . "h " . ($total % 60) . "m";
+    }
+
     public function hoursToday() {
       $total = 0;
       $today = new \DateTime();
